@@ -20,6 +20,8 @@
         ? { ...window.celloMobileConfig }
         : {};
 
+      window.celloMobileConfig = undefined;
+
       window.cello.cmd.push(function (cello) {
         cello.boot({
           productId: celloMobileConfig.productConfig?.productId,
