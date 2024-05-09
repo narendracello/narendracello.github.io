@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1 width=device-width, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Widget V2 Host</title>
+    <script
+      type="module"
+      src="https://assets.sandbox.cello.so/app/v2/latest/cello.js"
+      async
+    ></script>
+  </head>
+  <body>
+    <script>
+      window.cello = window.cello || { cmd: [] };
+
+      const celloMobileConfig = window.celloMobileConfig
+        ? { ...window.celloMobileConfig }
+        : {};
+
+      window.cello.cmd.push(function (cello) {
+        cello.boot({
+          productId: celloMobileConfig.productConfig?.productId,
+          token: celloMobileConfig.token,
+          hideDefaultLauncher: true,
+          mobileMode: true,
+          productUserDetails: celloMobileConfig.productUserDetails,
+        });
+        cello.open();
+      });
+    </script>
+  </body>
+</html>
